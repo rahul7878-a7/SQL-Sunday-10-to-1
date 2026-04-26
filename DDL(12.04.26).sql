@@ -71,3 +71,91 @@ select * from employee where job_desc not in ("Manager","Developer");
 -- between
 select * from employee where salary between 40000 and 60000;
 
+GOKUL V SQL PRACTICES TASK;
+
+-- create database database_name;
+create database gokul_tech;
+
+-- use database;
+use gokul_tech;
+
+-- DDL
+create table employee(id int,name varchar(50),dept varchar(50),age int,salary int);
+
+-- show tables
+show tables;
+
+-- show full tables information 
+describe employee;
+
+show columns from employee;
+
+-- to identify the query of the table
+show create table employee;
+
+-- create new column in table
+alter table employee add column email varchar(55);
+
+-- modify the column
+alter table employee modify column age varchar(30);
+
+-- to change column name in table 
+alter table employee rename column dept to department;
+
+-- remove the column from table 
+alter table employee drop column age;
+
+-- rename the table name 
+rename table employee to staff;
+
+-- insert with correct number of columns
+insert into staff(id,name,department,salary,email) 
+values(1,"Gokul","Hacker",60000,NULL);
+
+-- remove all rows
+truncate table staff;
+
+-- remove table from db 
+drop table staff;
+
+
+-- create new employee table
+create table employee(emp_id int,ename varchar(50),job_desc varchar(50),salary int);
+
+insert into employee values(1,"Gokul","Manager",50000);
+insert into employee values(2,"Sugash","HR",45000);
+insert into employee values(3,"Hrithik","Body guard",35000);
+
+-- DQL
+select * from employee;
+
+select * from employee where emp_id = 4;
+
+select ename,salary from employee;
+
+-- DML
+
+-- insert 
+insert into employee values(4,"Gokul","Manager",50000);
+insert into employee(emp_id, ename,job_desc) values(6,"gokul","Manager");
+
+-- update (safe updates off first)
+set sql_safe_updates = 0;
+
+update employee set salary = 40000, emp_id=7 where salary is null;
+
+-- delete
+delete from employee where emp_id=7;
+
+
+-- DQL clauses
+
+select * from employee where salary < 50000 and job_desc = "Manager";
+
+select * from employee where job_desc = "HR" or job_desc = "Developer";
+
+select * from employee where job_desc not in ("HR","Developer");
+
+-- between 
+select * from employee where salary between 40000 and 50000;
+
